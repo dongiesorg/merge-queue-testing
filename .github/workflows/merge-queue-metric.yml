@@ -1,0 +1,10 @@
+name: Tracking Merge Queue
+on:
+  pull_request:
+    types: ["enqueued", "dequeued"]
+
+jobs:
+  emit-metric:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "enqueue or dequeue"
