@@ -4,7 +4,14 @@ on:
     types: ["enqueued", "dequeued"]
 
 jobs:
-  emit-metric:
+  emit-enqueue:
     runs-on: ubuntu-latest
+    if: ${{ gihub.event.pull_request.action == 'enqueued' }}
     steps:
-      - run: echo "enqueue or dequeue"
+      - run: echo "enqueued"
+
+  emit-dequeue:
+    runs-on: ubuntu-latest
+    if: ${{ gihub.event.pull_request.action == 'dequeued' }}
+    steps:
+      - run: echo "dequeued"
