@@ -6,12 +6,12 @@ on:
 jobs:
   emit-enqueue:
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.action == 'enqueued' }}
+    if: ${{ github.event.action == 'enqueued' }}
     steps:
       - run: echo "enqueued"
 
   emit-dequeue:
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.action == 'dequeued' }}
+    if: ${{ github.event.action == 'dequeued' }}
     steps:
       - run: echo "dequeued"
