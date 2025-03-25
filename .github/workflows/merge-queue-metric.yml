@@ -8,10 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.action == 'enqueued' }}
     steps:
-      - run: echo "enqueued"
+      - run: |
+          echo "enqueued"
+          aws help
 
   emit-dequeue:
     runs-on: ubuntu-latest
     if: ${{ github.event.action == 'dequeued' && github.event.reason != 'MERGE'}}
     steps:
-      - run: echo "Removed from queue without merge"
+      - run: |
+          echo "enqueued"
+          aws help
