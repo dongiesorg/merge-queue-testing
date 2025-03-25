@@ -14,4 +14,5 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.event.action == 'dequeued' && github.event.reason != 'MERGE'}}
     steps:
-      - run: echo "Removed from queue without merge"
+      - run: |
+          aws help
